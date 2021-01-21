@@ -1,0 +1,43 @@
+﻿<Page x:Class="Bank.Views.Pages.Home.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bank.Views.Pages.Home"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1300"
+      Title="LoginPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Имя пользователя" FontSize="20"/>
+                    <TextBox x:Name="TxbUsername" Width="250" FontSize="20" Margin="20 0 0 0"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+
+                    <TextBlock Text="Пароль" FontSize="20" Margin="0 0 0 0"/>
+
+                    <PasswordBox  x:Name="PsbPassword" Width="250" Margin="120 0 0 0" FontSize="20"/>
+
+                </StackPanel>
+
+
+                
+            </StackPanel >
+
+            <StackPanel Orientation="Horizontal" Margin="100 8 0 0">
+                <Button Width="120" Height="25" Content="Отмена" x:Name="BtnChancel" Click="BtnChancel_Click" Margin="0 0 10 0" />
+                
+                <Button Width="120" Height="25" Content="Войти" x:Name="BtnNext" Click="BtnNext_Click"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Page>

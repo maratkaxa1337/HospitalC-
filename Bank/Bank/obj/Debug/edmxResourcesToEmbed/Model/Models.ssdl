@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище dbBankModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDPassport" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DateResults" Type="date" Nullable="false" />
+    <Property Name="IssuedWhom" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gender" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="DateBrith" Type="date" Nullable="false" />
+    <Property Name="BirthPlace" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassportSeries" Type="int" Nullable="false" />
+    <Property Name="PassportNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SignIn">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="IDRole" Type="nchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bank_IDPassword_Passport_ID">
+    <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+    <End Role="Bank" Type="Self.Bank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passport">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bank">
+        <PropertyRef Name="IDPassport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SignIn_IDRole_Role_ID">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="SignIn" Type="Self.SignIn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SignIn">
+        <PropertyRef Name="IDRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище dbBankModelContainer">
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SignIn" EntityType="Self.SignIn" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bank_IDPassword_Passport_ID" Association="Self.FK_Bank_IDPassword_Passport_ID">
+      <End Role="Passport" EntitySet="Passport" />
+      <End Role="Bank" EntitySet="Bank" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SignIn_IDRole_Role_ID" Association="Self.FK_SignIn_IDRole_Role_ID">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="SignIn" EntitySet="SignIn" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

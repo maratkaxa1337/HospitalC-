@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище dbBankModelContainer" CdmEntityContainer="dbBankEntities">
+    <EntitySetMapping Name="Bank">
+      <EntityTypeMapping TypeName="dbBankModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPassport" ColumnName="IDPassport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passport">
+      <EntityTypeMapping TypeName="dbBankModel.Passport">
+        <MappingFragment StoreEntitySet="Passport">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="DateResults" ColumnName="DateResults" />
+          <ScalarProperty Name="IssuedWhom" ColumnName="IssuedWhom" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateBrith" ColumnName="DateBrith" />
+          <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+          <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
+          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="dbBankModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignIn">
+      <EntityTypeMapping TypeName="dbBankModel.SignIn">
+        <MappingFragment StoreEntitySet="SignIn">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

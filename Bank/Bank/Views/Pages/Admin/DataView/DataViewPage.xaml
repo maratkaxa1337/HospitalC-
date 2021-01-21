@@ -1,0 +1,59 @@
+﻿<Page x:Class="Bank.Views.Pages.Admin.DataView.DataViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bank.Views.Pages.Admin.DataView"
+      mc:Ignorable="d" Loaded="Page_Loaded"
+      d:DesignHeight="700" d:DesignWidth="1300"
+      Title="DataViewPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <TextBlock Text="Поиск" FontSize="19" Width="80"/>
+                <TextBox x:Name="TxbSearch" Width="250" FontSize="19" TextChanged="TxbSearch_TextChanged"/>
+
+            </StackPanel>
+            
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <StackPanel>
+
+                <DataGrid x:Name="DataView" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+
+                    <DataGrid.Columns >
+
+                        <DataGridTextColumn  Header="ID" Binding="{Binding ID}" Width="0.3*"/>
+                        <DataGridTextColumn  Header="Фамилия" Binding="{Binding LastName}" Width="*"/>
+                        <DataGridTextColumn  Header="Имя" Binding="{Binding FirstName}" Width="*"/>
+                        <DataGridTextColumn  Header="Отчество" Binding="{Binding Patronymic}" Width="*"/>
+                        <DataGridTextColumn  Header="Дата Выдачи" Binding="{Binding DateResults}" Width="*"/>
+                        <DataGridTextColumn  Header="Кем выдан" Binding="{Binding IssuedWhom}" Width="*"/>
+                        <DataGridTextColumn  Header="Пол" Binding="{Binding Gender}" Width="*"/>
+                        <DataGridTextColumn  Header="Дата Рождения" Binding="{Binding DateBrith}" Width="*"/>
+                        <DataGridTextColumn  Header="Место рождения" Binding="{Binding BirthPlace}" Width="*"/>
+                        <DataGridTextColumn  Header="Серия паспорта" Binding="{Binding PassportSeries}" Width="*"/>
+                        <DataGridTextColumn  Header="Номер паспорта" Binding="{Binding PassportNumber}" Width="*"/>
+
+                    </DataGrid.Columns>
+                    
+                </DataGrid>
+                
+            </StackPanel>
+            
+        </Grid>
+        
+    </Grid>
+</Page>

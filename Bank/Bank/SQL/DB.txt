@@ -1,0 +1,69 @@
+CREATE DATABASE [dbBank]
+
+USE [dbBank]
+
+GO
+
+CREATE TABLE [Role] (
+
+[ID]			NCHAR(1)		NOT NULL,
+[Title]			NVARCHAR(30)	NOT NULL,
+CONSTRAINT PK_Role_ID PRIMARY KEY (ID)
+
+)
+
+GO
+
+INSERT INTO [Role] ([ID],[Title]) VALUES ('A','Администратор')
+INSERT INTO [Role] ([ID],[Title]) VALUES ('U','Пользователь')
+
+CREATE TABLE [SignIn] (
+
+[ID]			INT IDENTITY(0, 1),
+[Username]		NVARCHAR(30)		NOT NULL,
+[Password]		NVARCHAR(30)		NOT NULL,
+[IDRole]		NCHAR(1)	CONSTRAINT FK_SignIn_IDRole_Role_ID FOREIGN KEY REFERENCES [Role] ([ID])	NOT NULL,
+
+CONSTRAINT PK_SignIn_ID PRIMARY KEY (ID)
+
+)
+
+GO
+
+INSERT INTO [SignIn] ([Username],[Password],[IDrole]) VALUES ('marat','1234','A')
+INSERT INTO [SignIn] ([Username],[Password],[IDrole]) VALUES ('kaxa','1234','U')
+
+
+CREATE TABLE [Bank] (
+
+[ID]			INT IDENTITY(0, 1),
+[IDPassport]	INT	CONSTRAINT FK_Bank_IDPassword_Passport_ID FOREIGN KEY REFERENCES [Passport] ([ID]) NOT NULL,
+CONSTRAINT PK_Bank_ID PRIMARY KEY (ID)
+
+)
+
+GO
+INSERT INTO [Bank] ([IDPassport]) VALUES ('0')
+
+
+CREATE TABLE [Passport] (
+
+[ID]				INT IDENTITY(0, 1),
+[LastName]			NVARCHAR(30)			NOT NULL,
+[FirstName]			NVARCHAR(30)			NOT NULL,
+[Patronymic]		NVARCHAR(30)			NOT NULL,
+[DateResults]		DATE					NOT NULL,
+[IssuedWhom]		NVARCHAR(100)			NOT NULL,
+[Gender]			NCHAR(3)				NOT NULL,
+[DateBrith]			DATE					NOT NULL,
+[BirthPlace]		NVARCHAR(50)			NOT NULL,
+[PassportSeries]	INT						NOT NULL,
+[PassportNumber]	INT						NOT NULL,
+CONSTRAINT PK_Passport_ID PRIMARY KEY (ID)
+
+)
+
+GO
+INSERT INTO [Passport] ([LastName],[FirstName],[Patronymic],[DateResults],[IssuedWhom],[Gender],[DateBrith],[BirthPlace],[PassportSeries],[PassportNumber]) VALUES ('Сулейманов','Марат','Магомедович','2015-11-10','РОССИИ ПО РЕСП. ДАГЕСТАН В КИРОВСКОМ РАЙОНЕ ГОР. МАХАЧКАЛЫ','МУЖ','2001-09-18','ГОР. МАХАЧКАЛА','8116','687965')
+
+
