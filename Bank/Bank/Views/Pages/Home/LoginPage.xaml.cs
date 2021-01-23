@@ -1,4 +1,5 @@
 ﻿using Bank.Context;
+using Bank.Views.Pages.Admin.DataView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Bank.Views.Pages.Home
 
         private void BtnChancel_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void BtnNext_Click(object sender, RoutedEventArgs e)
@@ -39,12 +40,26 @@ namespace Bank.Views.Pages.Home
                 if (CurrentUser != null)
                 {
 
+                    switch (CurrentUser.IDRole)
+                    {
+                        case "A":
+                            NavigationService.Navigate(new DataViewPage());
+                            break;
+                        case "U":
+                            MessageBox.Show("Пока тут нету ни чего", "Удачи", MessageBoxButton.OK, MessageBoxImage.Information);
+                            break;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Введите данные!");
                 }
             }
             catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message, ex.Source + "выдал исключение", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

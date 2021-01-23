@@ -33,9 +33,9 @@
             </StackPanel >
 
             <StackPanel Orientation="Horizontal" Margin="100 8 0 0">
-                <Button Width="120" Height="25" Content="Отмена" x:Name="BtnChancel" Click="BtnChancel_Click" Margin="0 0 10 0" />
+                <Button Width="120" Height="25" Content="Отмена" x:Name="BtnChancel" Click="BtnChancel_Click" Margin="0 0 10 0" IsCancel="True" />
                 
-                <Button Width="120" Height="25" Content="Войти" x:Name="BtnNext" Click="BtnNext_Click"/>
+                <Button Width="120" Height="25" Content="Войти" x:Name="BtnNext" Click="BtnNext_Click" IsDefault="True"/>
             </StackPanel>
             
         </StackPanel>

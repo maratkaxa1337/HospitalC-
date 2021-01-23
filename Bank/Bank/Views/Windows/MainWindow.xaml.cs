@@ -30,7 +30,7 @@ namespace Bank
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(new DataViewPage());
+            mainFrame.Navigate(new LoginPage());
         }
     }
 }
