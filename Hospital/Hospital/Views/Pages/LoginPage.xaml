@@ -1,0 +1,55 @@
+﻿<Page x:Class="Hospital.Views.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Hospital.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="LoginPage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            
+        <Image Source="/image/shutterstock-295184639_754473_20190620201905.jpg"/>
+            
+        </StackPanel>
+        
+        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Логин"
+                           FontSize="24"
+                           Width="135"/>
+                <TextBox x:Name="LoginBox"
+                         Width="250"
+                         FontSize="19"
+                         VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 8 0 0">
+                <TextBlock Text="Пароль"
+                           FontSize="24"
+                           Width="135"/>
+                <PasswordBox x:Name="PasswordBox"
+                         FontSize="19"
+                         Width="250"
+                             VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <Button x:Name="SignBtn"
+                        Width="200"
+                        Height="30"
+                        Content="Войти"
+                        FontSize="18"
+                        Click="SignBtn_Click"/>
+                <Button Width="200" Margin="15 0 0 0 "
+                             Height="30"
+                             Content="Выйти"
+                             FontSize="18"
+                            x:Name="CancelBtn"
+                            Click="CancelBtn_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
